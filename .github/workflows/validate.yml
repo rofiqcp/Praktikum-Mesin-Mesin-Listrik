@@ -17,6 +17,8 @@ jobs:
         run: python -m pip install -r requirements.txt
       - name: Check module structure
         run: python tools/check_structure.py
+      - name: Check documentation readiness
+        run: python tools/check_readiness.py
       - name: Compile Python programs
         run: python tools/verify_python.py
       - name: Run non-interactive Python programs
