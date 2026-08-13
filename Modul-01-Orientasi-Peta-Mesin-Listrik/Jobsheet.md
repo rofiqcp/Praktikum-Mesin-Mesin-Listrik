@@ -1,51 +1,67 @@
-# Jobsheet 01 — Brainstorming Semua Materi dan Hubungannya
+# Jobsheet P01 — Orientasi dan Peta Mesin-Mesin Listrik
+
+**Durasi:** 3 × 50 menit
 
 ## Tujuan
-1. Membuat peta konsep mesin listrik selama 16 pertemuan.
-2. Mengenali terminal, nameplate, alat ukur, proteksi, dan software.
-3. Menjalankan simulasi awal transformator, motor DC, motor induksi, latching, forward–reverse, dan star–delta tanpa masuk ke pengujian detail.
+Mahasiswa mengidentifikasi keluarga mesin listrik, membaca nameplate, menghubungkan besaran listrik dan mekanik, memahami peta P1–P16, dan menjalankan analisis komputasi dasar.
 
-## Alat dan Bahan
-Trainer transformator, motor DC tegangan rendah, motor induksi trainer, kontaktor/tombol/overload/timer, multimeter, clamp meter, tachometer, PC.
+## Pra-Lab
+1. Apa perbedaan transformator dan motor?
+2. Apa makna Hukum Faraday?
+3. Apa beda rpm dan rad/s?
+4. Mengapa mesin nyata mempunyai rugi-rugi?
+5. Apa fungsi nameplate?
 
-## Bagian A — Identifikasi Hardware
-Buat tabel berisi: nama alat, rating, terminal, fungsi, risiko, alat ukur yang dipakai. Foto nameplate hanya jika diizinkan laboratorium.
+## Aktivitas 1 — Identifikasi
+Amati contoh mesin atau data nameplate yang disediakan pengajar.
 
-## Bagian B — Simulasi CADe SIMU
-Buat 4 rangkaian awal:
-1. **Latching**: STOP NC, START NO, coil K1, kontak bantu K1 NO.
-2. **Forward–Reverse**: K1/K2 dengan interlock listrik NC silang.
-3. **Star–Delta**: main, star, delta, timer; star dan delta harus saling interlock.
-4. **Motor 3 fasa DOL**: MCB/fuse → contactor → overload → motor.
+| No | Objek | V | I | Daya | f | Fasa | rpm | PF | Catatan |
+|---:|---|---:|---:|---:|---:|---:|---:|---:|---|
+| 1 | | | | | | | | | |
+| 2 | | | | | | | | | |
+| 3 | | | | | | | | | |
 
-Untuk trafo dan motor DC, gunakan program Python modul ini sebagai analisis konsep awal. Detail eksperimen baru dilakukan pada modul berikutnya.
-
-## Bagian C — Hardware Demonstrasi
-Dosen/laboran memperlihatkan terminal trafo, motor DC, dan motor induksi. Mahasiswa hanya melakukan continuity/identifikasi terminal saat sumber OFF.
-
-## Bagian D — Pengukuran Awal
-Dengan trainer yang aman, catat satu contoh pengukuran tiap kategori:
-- tegangan AC,
-- tegangan DC,
-- arus beban,
-- kecepatan rpm.
-
-## Tabel Analisis
-| Sistem | Input | Output | Besaran utama | Kontrol/Proteksi | Modul lanjutan |
+## Aktivitas 2 — Peta Energi
+| Objek | Input | Proses | Output | Rugi | Data analisis |
 |---|---|---|---|---|---|
-| Trafo | AC | AC | V, I, P | Fuse/MCB | P2-P3, P12 |
-| Motor DC | DC | Mekanik | V, I, rpm, T | Fuse/driver | P4-P5 |
-| Motor induksi | 3φ AC | Mekanik | VL, IL, rpm, slip | Contactor/OLR | P6-P11 |
-| Mesin sinkron | AC/DC exc. | Listrik/mekanik | f, V, I, rpm | Proteksi | P14 |
+| Transformator | | | | | |
+| Motor DC | | | | | |
+| Motor induksi | | | | | |
 
-## Pertanyaan Analisa
-1. Mengapa latching memakai kontak bantu?
-2. Apa risiko jika K-forward dan K-reverse aktif bersamaan?
-3. Mengapa pengukuran tegangan dilakukan paralel dan arus seri/clamp?
-4. Hubungkan formula `Ns=120f/P` dengan kebutuhan pengukuran rpm.
+## Aktivitas 3 — Simulasi Konseptual
+Gunakan software simulasi yang tersedia untuk membuat model input-state-output sederhana. Catat empat state dan jelaskan transisinya. Fokus pada cara membaca diagram dan hubungan sebab-akibat.
 
-## Deliverable
-- 1 peta konsep A3/digital.
-- Screenshot 4 rangkaian CADe SIMU.
-- Hasil `python program/peta_mesin.py`.
-- Kesimpulan maksimal 1 halaman.
+## Aktivitas 4 — Python
+```bash
+python peta_mesin.py
+```
+Catat keluaran dan kelompokkan mesin berdasarkan konversi energinya.
+
+## Aktivitas 5 — Node.js
+```bash
+node peta_mesin.js
+```
+Bandingkan hasilnya dengan program Python.
+
+## Aktivitas 6 — Mind Map Semester
+Buat mind map dengan minimal 12 node: Faraday, transformator, rugi inti, rugi tembaga, motor DC, back-EMF, motor induksi, kecepatan sinkron, slip, faktor daya, efisiensi, CSV, dan diagnosis.
+
+## Latihan
+1. Sistem DC 24 V dan 2 A: hitung daya listrik.
+2. Poros 1200 rpm dengan torsi 0,25 N.m: hitung omega dan daya mekanik.
+3. Trafo ideal N1=500, N2=100, V1=220 V: hitung V2.
+4. Mesin induksi 4 kutub, 50 Hz, rotor 1440 rpm: hitung kecepatan sinkron dan slip.
+
+## Analisis
+1. Mengapa transformator dipelajari lebih dahulu?
+2. Apa hubungan fluks dengan tegangan induksi?
+3. Mengapa arus saja tidak cukup untuk menentukan efisiensi?
+4. Apa beda nameplate dan dataset eksperimen?
+5. Apa manfaat simulasi dan Python?
+6. Mengapa satuan wajib dicatat?
+
+## Output
+Tabel identifikasi, peta energi, screenshot simulasi, output program, mind map, latihan, analisis, dan kesimpulan 150–250 kata.
+
+## Rubrik
+Identifikasi/peta 25%, simulasi 15%, program 15%, perhitungan 15%, mind map/analisis 20%, dokumentasi 10%.
