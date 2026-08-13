@@ -46,4 +46,4 @@ Tanya jawab individual, perhitungan singkat, interpretasi grafik, pembacaan diag
 ## Kriteria Jawaban Baik
 Jawaban harus menyebut rumus yang tepat, definisi variabel, satuan, arti fisik hasil, asumsi, serta keterbatasan data bila ada.
 
-Gunakan `Formula-Ringkas.md`, `Bank-Soal-Akhir.md`, `Jobsheet-Lengkap.md`, dan folder `program/` untuk latihan.
+Gunakan `Formula-Ringkas.md`, `Jobsheet-Lengkap.md`, `program/final_bank.py`, dan `program/final_responsi.py` untuk latihan.
