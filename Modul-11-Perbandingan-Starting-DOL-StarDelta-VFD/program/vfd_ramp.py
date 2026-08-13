@@ -1,12 +1,18 @@
 def ramp_profile(ramp_s, f_target=50.0, v_target=1.0, dt=0.5):
-    n = int(ramp_s / dt) + 1
+    if ramp_s < 0 or dt <= 0:
+        raise ValueError('ramp_s must be >= 0 and dt must be > 0')
+    if ramp_s == 0:
+        return [(0.0, f_target, v_target)]
+
     out = []
-    for i in range(n + 1):
-        t = min(i * dt, ramp_s)
-        ratio = 1.0 if ramp_s == 0 else t / ramp_s
-        f_pu = ratio
-        v_pu = ratio
-        out.append((t, f_target * f_pu, v_target * v_pu))
+    steps = int(ramp_s / dt)
+    for i in range(steps + 1):
+        t = i * dt
+        ratio = min(t / ramp_s, 1.0)
+        out.append((t, f_target * ratio, v_target * ratio))
+
+    if out[-1][0] < ramp_s:
+        out.append((ramp_s, f_target, v_target))
     return out
 
 
