@@ -1,0 +1,6 @@
+timestamp,machine,test,V,I,P,PF,rpm,torque,temp,note
+0,IM3P,load20,380,1.28,520,0.62,1484,2.8,35,baseline
+1,IM3P,load40,380,1.55,860,0.74,1472,5.3,39,normal
+2,IM3P,load60,379,1.90,1220,0.80,1458,7.8,44,normal
+3,IM3P,load80,371,2.65,1600,0.79,1420,9.9,57,check_supply_or_load
+4,IM3P,repeat80,379,2.31,1585,0.83,1442,10.0,50,after_repeat
