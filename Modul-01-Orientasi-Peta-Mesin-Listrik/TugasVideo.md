@@ -1,9 +1,17 @@
-# Tugas Video 01 — Peta Besar Mesin Listrik
+# Tugas Video P01 — Peta Mesin-Mesin Listrik
 
-Buat video **5–7 menit** berisi:
-1. Jelaskan hubungan trafo, motor DC, motor induksi, mesin sinkron, starter, dan pengukuran.
-2. Tampilkan simulasi CADe SIMU latching dan forward–reverse.
-3. Jalankan `peta_mesin.py` dan jelaskan minimal 3 rumus yang ditampilkan.
-4. Tutup dengan prediksi: besaran apa yang paling penting diukur pada trafo dan motor.
+Durasi 6–9 menit.
 
-**Penilaian:** konsep 40%, demonstrasi 30%, analisis 20%, kerapian 10%.
+## Isi
+1. Jelaskan alur energi transformator, motor DC, dan motor induksi.
+2. Tampilkan mind map P1–P16 dengan minimal lima hubungan sebab-akibat.
+3. Jelaskan lima parameter dari satu contoh nameplate.
+4. Jalankan `peta_mesin.py` dan jelaskan outputnya.
+5. Jelaskan kegunaan simulator, Python/Colab, dan Node.js sebagai alat belajar.
+6. Tampilkan satu contoh perhitungan.
+7. Sebutkan tiga konsep yang harus dikuasai sebelum P2.
+
+## Rubrik
+Konsep 30%, hubungan materi 25%, interpretasi data/program 20%, penyajian 15%, sumber dan durasi 10%.
+
+Nama file: `P01_NIM_Nama_TugasVideo.mp4`.
