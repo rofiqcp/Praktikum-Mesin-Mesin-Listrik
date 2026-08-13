@@ -1,0 +1,12 @@
+case_id,machine,metric,reference,measured,unit,note
+T1,TRAFO1P,V2,24.0,22.7,V,secondary_voltage_drop
+T1,TRAFO1P,V1,220.0,219.0,V,input_normal
+D1,MOTOR_DC,rpm,1700,1450,rpm,speed_drop
+D1,MOTOR_DC,I,1.2,1.8,A,current_rise
+I1,IM3P,V,380,371,V,supply_low
+I1,IM3P,rpm,1445,1420,rpm,speed_low
+I1,IM3P,I,2.3,2.65,A,current_high
+S1,SYNC,f,50.0,49.5,Hz,frequency_shift
+S1,SYNC,rpm,1500,1485,rpm,speed_shift
+M1,IM1P,rpm,1450,1415,rpm,speed_drop
+M1,IM1P,I,1.8,2.3,A,current_rise
