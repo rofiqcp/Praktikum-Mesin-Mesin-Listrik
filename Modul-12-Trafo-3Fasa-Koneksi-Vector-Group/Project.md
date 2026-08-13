@@ -1,19 +1,97 @@
-# Project 12 — Desain dan Validasi Bank Transformator 3 Fasa
+# Project 12 — Analisis Transformator Tiga Fasa dan Vector Group
 
-## Skenario
-Diberikan sumber trainer tiga fasa dan target tegangan line sekunder. Kelompok harus memilih koneksi yang sesuai dari opsi yang disediakan pengajar.
+P12 menggunakan **Project.md** sebagai deliverable utama dan menggantikan TugasVideo.
 
-## Deliverable
-1. Diagram koneksi primer/sekunder lengkap terminal.
-2. Perhitungan `Vph`, `VL`, dan rasio winding.
-3. Prediksi phase displacement/vector group untuk konfigurasi yang ditetapkan.
-4. Checklist polaritas dan pre-energize.
-5. Simulasi phasor dengan `three_phase_transformer.py`.
-6. Pengukuran tegangan pada trainer setelah verifikasi instruktur.
-7. Analisis error teori vs hasil ukur.
+## Tujuan
+Membangun paket analisis yang menghubungkan besaran line/phase, rasio winding, empat keluarga koneksi, fasor tiga fasa, dan clock notation melalui perhitungan manual serta Python.
 
-## Batas Keselamatan
-Tidak melakukan parallel operation dua bank sebagai eksperimen bebas. Parallel hanya boleh sebagai demonstrasi terkontrol bila lab memiliki prosedur khusus.
+## Bagian 1 — Dataset Desain
+Kelompok menerima:
+- rasio winding per fasa `a`;
+- nilai line referensi sisi 1;
+- empat opsi koneksi Y-Y, Y-Delta, Delta-Y, Delta-Delta;
+- satu vector-group code untuk dianalisis;
+- satu dataset tiga nilai line-to-line.
+
+## Bagian 2 — Perhitungan Manual
+Untuk setiap opsi koneksi hitung:
+1. `Vphase` pada kedua sisi;
+2. rasio line-to-line;
+3. nilai line sisi 2;
+4. hubungan `Iline` dan `Iphase` secara simbolik;
+5. ketersediaan neutral point secara konseptual.
+
+## Bagian 3 — Tabel Perbandingan
+
+| Koneksi | VL/Vph sisi 1 | VL/Vph sisi 2 | Rasio line | Catatan |
+|---|---|---|---|---|
+|Y-Y|||||
+|Y-Delta|||||
+|Delta-Y|||||
+|Delta-Delta|||||
+
+## Bagian 4 — Fasor
+Gunakan tiga fasor phase yang berbeda 120 derajat. Hitung line-to-line sebagai selisih fasor dan tampilkan:
+- magnitude;
+- angle;
+- rasio magnitude line/phase.
+
+## Bagian 5 — Clock Notation
+Untuk clock 0, 1, 5, 6, dan 11:
+1. konversikan angka clock menjadi sudut;
+2. tuliskan bentuk sudut ekuivalen pada rentang -180° sampai +180°;
+3. gambar posisi fasor pada sketsa jam;
+4. jelaskan perbedaan antar-clock.
+
+## Bagian 6 — Program
+Jalankan program P12 dan sertakan output. Jika parameter program diubah, dokumentasikan nilai sebelum dan sesudah.
+
+## Bagian 7 — Analisis Dataset
+Untuk tiga nilai line-to-line:
+1. hitung rata-rata;
+2. hitung deviasi masing-masing;
+3. hitung indikator sederhana `max deviation / average × 100%`;
+4. bandingkan dataset baseline dengan satu dataset modifikasi.
+
+## Bagian 8 — Quality Check
+Project harus mempunyai pengecekan otomatis untuk:
+- clock number hanya 0–11;
+- nilai magnitude tidak negatif;
+- rasio winding lebih besar dari nol;
+- tiga data line tersedia;
+- pembagian dengan nol tidak terjadi.
+
+## Bagian 9 — Laporan
+Struktur laporan maksimum 12 halaman:
+1. tujuan;
+2. teori ringkas;
+3. parameter;
+4. perhitungan manual;
+5. program;
+6. tabel empat koneksi;
+7. analisis fasor;
+8. vector-group clock;
+9. analisis dataset;
+10. diskusi error/asumsi;
+11. kesimpulan;
+12. lampiran output.
+
+## Bagian 10 — Presentasi
+Durasi 8–10 menit per kelompok. Semua anggota harus dapat menjelaskan:
+- perbedaan line dan phase;
+- asal faktor `sqrt(3)`;
+- perbedaan rasio winding dan rasio line;
+- arti clock notation.
 
 ## Rubrik
-Desain 25%, hitung 20%, keselamatan 25%, pengukuran 15%, analisis 15%.
+| Komponen | Bobot |
+|---|---:|
+|Perhitungan manual|20%|
+|Program dan reproducibility|20%|
+|Analisis empat koneksi|20%|
+|Fasor dan clock notation|20%|
+|Analisis dataset|10%|
+|Presentasi|10%|
+
+## Kriteria Nilai Tinggi
+Nilai tinggi membutuhkan konsistensi antara teori, tabel, fasor, dan output program; bukan hanya tampilan laporan.
