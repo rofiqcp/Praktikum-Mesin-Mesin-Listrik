@@ -1,21 +1,30 @@
 # Jobsheet 16 — Responsi Tanya Jawab Akhir
 
+P16 menguji integrasi P1–P15. Gunakan `Jobsheet-Lengkap.md` dan `Materi-Lengkap.md` sebagai panduan lengkap.
+
 ## Station A — Transformator
-Hitung rasio/regulasi atau hubungan line-phase dari data yang diberikan.
+Hitung rasio, regulasi, efisiensi, atau hubungan line–phase dari data yang diberikan. Jelaskan arti hasilnya.
 
 ## Station B — Motor DC
-Hitung back-EMF atau efisiensi dan interpretasikan kurva speed-torque.
+Hitung back-EMF, daya, atau efisiensi dan interpretasikan hubungan arus–torsi–kecepatan.
 
 ## Station C — Motor Induksi
-Hitung Ns/slip, interpretasi PF/efisiensi/beban, dan bandingkan metode starting.
+Hitung `Ns`, slip, frekuensi rotor, PF/daya/efisiensi, lalu interpretasikan satu grafik performa atau starting.
 
 ## Station D — Kendali
-Baca diagram latching, forward-reverse, atau star-delta dan jelaskan fungsi interlock.
+Baca state table atau diagram logika dan jelaskan latching, interlock, permissive, timer, serta invariant.
 
 ## Station E — Motor 1 Fasa / Mesin Sinkron
-Jelaskan fungsi winding bantu-kapasitor atau hubungan rpm-frequency-excitation.
+Jelaskan konsep utama P13 atau hubungan rpm–frekuensi–eksitasi P14.
 
 ## Station F — Data
-Jalankan `program/final_responsi.py`, lalu jelaskan cara memeriksa kewajaran hasil.
+Periksa dataset, hitung derived variable, identifikasi data yang perlu ditinjau, buat dua hipotesis, dan jelaskan data tambahan yang diperlukan.
 
-Semua penggunaan trainer mengikuti prosedur laboratorium dan arahan pengajar.
+## Program Latihan
+```bash
+python program/final_bank.py
+python program/final_responsi.py
+```
+
+## Penilaian
+Konsep 30%, perhitungan 20%, interpretasi 20%, reasoning 20%, komunikasi teknis 10%.
