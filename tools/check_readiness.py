@@ -7,9 +7,9 @@ MODULES = sorted(p for p in ROOT.iterdir() if p.is_dir() and p.name.startswith("
 errors = []
 checked_refs = 0
 
-explicit_program = re.compile(r"program/[A-Za-z0-9_.-]+\.(?:py|js|m|csv|md)")
-backticked_file = re.compile(r"`([A-Za-z0-9_.-]+\.(?:py|js|m|csv|md))`")
-command_file = re.compile(r"(?:python(?:3)?|node)\s+((?:program/)?[A-Za-z0-9_.-]+\.(?:py|js))")
+explicit_program = re.compile(r"program/[A-Za-z0-9_.-]+\.(?:py|js|csv|md|m)(?![A-Za-z0-9_.-])")
+backticked_file = re.compile(r"`([A-Za-z0-9_.-]+\.(?:py|js|csv|md|m))`")
+command_file = re.compile(r"(?:python(?:3)?|node)\s+((?:program/)?[A-Za-z0-9_.-]+\.(?:py|js))(?![A-Za-z0-9_.-])")
 
 common_docs = {
     "Materi.md", "Jobsheet.md", "TugasVideo.md", "Project.md",
