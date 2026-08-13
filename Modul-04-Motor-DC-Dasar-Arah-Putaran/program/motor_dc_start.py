@@ -10,30 +10,34 @@ try:
 except ImportError:
     plt = None
 
-# Parameter contoh motor (ubah sesuai model/trainer yang dianalisis)
-V = 12.0       # volt
-R = 1.2        # ohm
-L = 0.012      # henry
-ke = 0.055     # V/(rad/s)
-kt = 0.055     # N.m/A
-J = 0.0025     # kg.m^2
-B = 0.0008     # N.m.s/rad
+# Parameter contoh motor untuk model pendidikan.
+V = 12.0
+R = 1.2
+L = 0.012
+ke = 0.055
+kt = 0.055
+J = 0.0025
+B = 0.0008
 load_torque = 0.02
 
 
 def simulate_start(voltage=V, tmax=2.0, dt=0.0005):
     current = 0.0
     omega = 0.0
-    time_data, current_data, rpm_data, emf_data = [], [], [], []
+    time_data = [0.0]
+    current_data = [0.0]
+    rpm_data = [0.0]
+    emf_data = [0.0]
 
-    for step in range(int(tmax / dt)):
+    for step in range(1, int(tmax / dt) + 1):
         t = step * dt
         di = (voltage - R * current - ke * omega) / L
-        dw = (kt * current - B * omega - load_torque) / J
+        effective_load = load_torque if omega > 0.0 else 0.0
+        dw = (kt * current - B * omega - effective_load) / J
         current += di * dt
-        omega += dw * dt
+        omega = max(omega + dw * dt, 0.0)
 
-        if step % 20 == 0:
+        if step % 20 == 0 or step == int(tmax / dt):
             time_data.append(t)
             current_data.append(current)
             rpm_data.append(omega * 60.0 / (2.0 * math.pi))
@@ -56,12 +60,15 @@ def steady_state(voltage, current):
 
 if __name__ == "__main__":
     T, I, RPM, E = simulate_start()
+    peak_index = max(range(len(I)), key=I.__getitem__)
 
     print("=== RESPONS START MOTOR DC ===")
-    print(f"arus sampel awal : {I[0]:.3f} A")
-    print(f"arus akhir       : {I[-1]:.3f} A")
-    print(f"rpm akhir        : {RPM[-1]:.1f} rpm")
-    print(f"back-EMF akhir   : {E[-1]:.3f} V")
+    print(f"arus pada t=0     : {I[0]:.3f} A")
+    print(f"arus puncak model : {I[peak_index]:.3f} A pada t={T[peak_index]:.3f} s")
+    print(f"arus steady akhir : {I[-1]:.3f} A")
+    print(f"rpm akhir         : {RPM[-1]:.1f} rpm")
+    print(f"back-EMF akhir    : {E[-1]:.3f} V")
+    print(f"V/R (batas stall resistif sederhana) = {V/R:.3f} A")
 
     print("\n=== SWEEP STEADY-STATE ===")
     print(" V(V)  I(A)   E(V)    rpm    T(Nm)  Pin(W)  Pconv(W)  Pcu(W)")
