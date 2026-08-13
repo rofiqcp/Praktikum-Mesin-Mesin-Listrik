@@ -27,3 +27,11 @@
 - P11 diperluas khusus evaluasi starting: DOL/star-delta/VFD sebagai performance comparison, per-unit, `T∝V²`, V/f, ramp frequency, torque margin, model beban, sweep inersia, transition study, decision matrix, `vfd_ramp.py`, `Analisis-Perbandingan.md`, dan README program.
 - P12 diperdalam sebagai project transformator tiga fasa melalui `Project.md` yang lebih lengkap dan README program untuk analisis empat koneksi serta fasor; Materi/Jobsheet dasar tetap menjadi fondasi line–phase dan vector group.
 - Batas anti-overlay dikunci: P9=model, P10=load performance, P11=starting performance, P12=transformator tiga fasa/vector group.
+
+### Audit P1–P16
+- Mengoreksi `KURIKULUM.md` agar peta P9–P15 sesuai struktur aktual repository.
+- Menambahkan `parameter_sweep.py` P9 yang sebelumnya sudah disebut sebagai program wajib tetapi belum tersedia.
+- Menambahkan `decision_matrix.py` P11 yang sebelumnya sudah disebut sebagai program wajib tetapi belum tersedia.
+- Menyinkronkan README program P9 dan P11 dengan script yang benar-benar tersedia.
+- Mengoreksi dataset baseline P5 agar perhitungan efisiensi contoh tidak menghasilkan nilai di atas 100%.
+- Menjalankan ulang validator struktur, compile seluruh Python, eksekusi program non-interaktif, serta program Node.js melalui GitHub Actions.
