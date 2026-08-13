@@ -1,0 +1,29 @@
+name: Validate Praktikum
+
+on:
+  push:
+    branches: [v1]
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install Python dependencies
+        run: python -m pip install -r requirements.txt
+      - name: Check module structure
+        run: python tools/check_structure.py
+      - name: Compile Python programs
+        run: python tools/verify_python.py
+      - name: Run non-interactive Python programs
+        env:
+          MPLBACKEND: Agg
+        run: python tools/run_noninteractive.py
+      - name: Check Node programs
+        run: |
+          node Modul-01-Orientasi-Peta-Mesin-Listrik/program/peta_mesin.js
+          node Modul-15-Integrasi-Uji-Diagnostik-Analisis-Data/program/report.js Modul-15-Integrasi-Uji-Diagnostik-Analisis-Data/program/lab_data.csv
