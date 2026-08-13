@@ -1,27 +1,29 @@
-# Jobsheet 05 — Karakteristik dan Efisiensi Motor DC
+# Jobsheet 05 — Karakteristik Beban Motor DC
 
-## Percobaan A — Beban Bertingkat
-Atur motor pada tegangan nominal trainer. Ambil data no-load sampai beban aman maksimum dalam 5–6 titik.
+Gunakan `Materi.md` sebagai dasar teori dan `Analisis-Data.md` sebagai panduan lengkap pengolahan dataset.
 
-| Beban | V | I | rpm | T (Nm) | Pin | Pout | eta |
-|---|---:|---:|---:|---:|---:|---:|---:|
-||||||||
+## Target
 
-## Percobaan B — Duty PWM
-Pada satu beban ringan yang aman, uji duty 20%, 40%, 60%, 80%, 100%. Catat rpm dan arus.
+Mahasiswa menyelesaikan perhitungan steady-state, membuat grafik karakteristik, memvalidasi data, dan menjelaskan hubungan beban, arus, kecepatan, daya, serta efisiensi.
+
+## Output
+
+- tabel data yang sudah dihitung;
+- satu contoh perhitungan manual;
+- grafik karakteristik;
+- hasil program Python;
+- analisis perbedaan model dan data;
+- kesimpulan berbasis angka.
 
 ## Program
-Edit `program/data_dc.csv`, lalu:
+
 ```bash
-python program/dc_characteristic.py
+cd Modul-05-Motor-DC-Karakteristik-Beban/program
+python dc_characteristic.py
 ```
 
-## Analisa
-1. Apakah torsi berbanding lurus dengan arus?
-2. Mengapa rpm turun ketika torsi naik?
-3. Pada titik mana efisiensi tertinggi?
-4. Bandingkan kontrol tegangan/PWM dengan perubahan beban.
-5. Jelaskan perbedaan data hasil ukur dan model ideal.
+Bila GNU Octave/MATLAB tersedia, jalankan pula `dc_pwm.m` untuk pembanding model numerik.
 
-## Deliverable
-CSV hasil ukur, tiga grafik utama, perhitungan efisiensi, dan kesimpulan 5 butir.
+## Penilaian
+
+Perhitungan 20%, program 20%, grafik 20%, analisis 30%, kesimpulan 10%.
