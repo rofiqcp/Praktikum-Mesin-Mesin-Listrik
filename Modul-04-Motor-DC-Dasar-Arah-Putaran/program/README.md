@@ -1,39 +1,72 @@
 # Program P04 — Motor DC Dasar
 
-## Jalankan
+## 1. Respons Start + Sweep Internal
+
 ```bash
 python motor_dc_start.py
 ```
 
-Script ini sekarang mempunyai **dua bagian**:
+Program utama mempunyai dua bagian:
 
-1. simulasi respons start dinamik menggunakan model listrik-mekanik sederhana;
-2. sweep steady-state beberapa kombinasi tegangan dan arus untuk menghitung back-EMF, rpm model, torsi, daya masuk, daya konversi, dan rugi tembaga.
+1. **respons start dinamik** menggunakan model listrik-mekanik sederhana;
+2. **sweep steady-state** untuk beberapa kombinasi tegangan dan arus.
 
-Jika Matplotlib tersedia, script menyimpan:
+Besaran yang dihitung antara lain:
+- arus jangkar;
+- back-EMF;
+- rpm model;
+- torsi model;
+- daya masuk;
+- daya konversi elektromekanik;
+- rugi tembaga.
+
+Jika Matplotlib tersedia, grafik disimpan sebagai:
 
 `motor_dc_start_response.png`
 
-## Parameter yang Dapat Dipelajari
-- `V`: tegangan model;
-- `R`, `L`: parameter jangkar;
-- `ke`: konstanta back-EMF;
-- `kt`: konstanta torsi;
-- `J`: inersia;
-- `B`: gesekan viskos;
-- `load_torque`: contoh torsi beban.
+## 2. Sweep Steady-State Ringkas
 
-## Eksperimen Mahasiswa
-1. jalankan parameter default;
-2. ubah satu parameter saja;
-3. jalankan ulang;
-4. catat perubahan arus awal, rpm akhir, dan back-EMF;
-5. ulangi untuk parameter kedua;
-6. jelaskan hubungan sebab-akibatnya.
-
-## Google Colab
-```python
-!python motor_dc_start.py
+```bash
+python motor_dc_sweep.py
 ```
 
-Gunakan parameter sebagai **model contoh**, bukan sebagai rating universal motor nyata.
+Script ini mengimpor fungsi `steady_state()` dari program utama lalu menghasilkan tabel CSV-like yang mudah dipindahkan ke Excel/Colab.
+
+## 3. Parameter Model
+
+| Parameter | Arti |
+|---|---|
+| V | tegangan model |
+| R | resistansi jangkar |
+| L | induktansi jangkar |
+| ke | konstanta back-EMF |
+| kt | konstanta torsi |
+| J | inersia |
+| B | koefisien gesekan viskos |
+| load_torque | contoh torsi beban |
+
+## 4. Eksperimen Numerik
+
+1. jalankan parameter default;
+2. ubah hanya satu parameter;
+3. jalankan ulang;
+4. catat arus, rpm, back-EMF, dan torsi;
+5. ulangi untuk parameter lain;
+6. jelaskan hubungan sebab-akibatnya.
+
+## 5. Google Colab
+
+```python
+!python motor_dc_start.py
+!python motor_dc_sweep.py
+```
+
+## 6. Output Laporan
+
+- output terminal dua script;
+- grafik respons start;
+- tabel minimal tiga skenario;
+- perbandingan manual vs program;
+- interpretasi parameter.
+
+> Nilai parameter pada script adalah **model pembelajaran**, bukan rating universal motor. Untuk laporan eksperimen, gunakan parameter/dataset yang diberikan pada sesi praktikum.
