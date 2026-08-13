@@ -1,29 +1,15 @@
 # Program P11
 
-## Script
-- `starting_compare.py`: membandingkan profil arus relatif dan waktu mencapai kecepatan relatif.
-- `vfd_ramp.py`: membuat tabel ramp frekuensi dan tegangan per-unit.
+Program yang tersedia:
+- `starting_compare.py` untuk tabel perbandingan profil model;
+- `vfd_ramp.py` untuk tabel ramp frekuensi dan tegangan per-unit;
+- `decision_matrix.py` untuk latihan skor berbobot pada studi kasus.
 
-## Menjalankan
+Jalankan:
 ```bash
 python starting_compare.py
 python vfd_ramp.py
+python decision_matrix.py
 ```
 
-Atau dari root repository gunakan path folder P11.
-
-## Eksperimen
-1. Catat baseline setiap metode.
-2. Ubah waktu transisi pada model pembanding dan catat perubahan profil.
-3. Ubah ramp pada `vfd_ramp.py` menjadi 2 s, 5 s, dan 10 s.
-4. Bandingkan peak current relatif dan waktu mencapai target.
-5. Dokumentasikan setiap parameter yang diubah.
-
-## Colab
-Upload file `.py`, lalu:
-```python
-!python starting_compare.py
-!python vfd_ramp.py
-```
-
-Nilai pada script adalah model pendidikan/per-unit untuk perbandingan konsep, bukan parameter commissioning peralatan nyata.
+Mahasiswa dapat mengubah parameter model dan bobot studi kasus, lalu membandingkan output dengan baseline. Nilai di dalam script adalah contoh pendidikan untuk analisis konsep.
